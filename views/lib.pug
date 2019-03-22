@@ -1,0 +1,6 @@
+mixin Field(label)
+    .field
+        if label
+            label.label=label
+        .control&attributes(attributes)
+            block

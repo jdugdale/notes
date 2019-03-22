@@ -1,0 +1,11 @@
+extends layout
+include ./lib
+
+block content
+    section.section: .container: form(action="/login", method="POST")
+        +Field('Username')
+            input.input(placeholder="Username", name="uid")
+        +Field('Password')
+            input.input(type="password", placeholder="Password", name="pwd")
+        +Field()
+            button.button.is-link(type="submit") Submit

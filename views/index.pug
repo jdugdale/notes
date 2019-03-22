@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    #app
+        nav
+            ul(style="margin: 1em"): li(v-for="e of entries"): a(href="#", @click.prevent="loadDate(e.key)") {{e.day}}
+
+        main
+            form(v-if="current")
+                textarea(v-model="current.value")
+
+
+block scripts
+    script(src="/js/index.js")
