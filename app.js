@@ -24,13 +24,19 @@ app.use(cookieParser(process.env.COOKIE_AUTH_KEY));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/login', require('./routes/login'));
-app.use(function(req, res, next) {
-    if (req.signedCookies.auth && req.signedCookies.auth != 'undefined') {
-        const cia = require('./lib/cia');
-        req.user = JSON.parse(cia.decrypt(req.signedCookies.auth));
-        next();
-    } else
-        res.redirect('/login');
+app.use('/create', require('./routes/create'));
+
+app.use(async (req, res, next) => {
+    const Auth = require('./lib/auth');
+    let isAuth = await Auth.checkLogin(req, res);
+    if(isAuth) next();
+    else res.redirect('/login');
+    // if (req.signedCookies.auth && req.signedCookies.auth != 'undefined') {
+    //     const cia = require('./lib/cia');
+    //     req.user = JSON.parse(cia.decrypt(req.signedCookies.auth));
+    //     next();
+    // } else
+    //     res.redirect('/login');
 });
 
 app.use('/', routes);

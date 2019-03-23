@@ -1,11 +1,30 @@
 extends layout
-include ./lib
+include ./lib/mixins
 
 block content
-    section.section: .container: form(action="/login", method="POST")
-        +Field('Username')
-            input.input(placeholder="Username", name="uid")
-        +Field('Password')
-            input.input(type="password", placeholder="Password", name="pwd")
-        +Field()
-            button.button.is-link(type="submit") Submit
+    //- section.section: .container: form(action="/login", method="POST")
+    //-     +Field('Username')
+    //-         input.input(placeholder="Username", name="uid")
+    //-     +Field('Password')
+    //-         input.input(type="password", placeholder="Password", name="pwd")
+    //-     +Field()
+    //-         button.button.is-link(type="submit") Submit
+
+    div(style="padding-top: 3em; width: 100%"): .container: .columns
+        .column: .box: form(method="POST", action="login")
+            h4.title.is-4 Login
+            +Field('Name')
+                input.input(type="text", placeholder="Diary name", name="uid", class=error ? 'is-danger' : '')
+            +Field('Passcode')
+                input.input(type="password", placeholder="Secret", name="pwd", class=error ? 'is-danger' : '')
+            +Field()
+                button.button.is-link(type="submit") Submit
+
+        .column: .box: form(method="POST", action="create")
+            h4.title.is-4 Create new Diary
+            +Field('Name')
+                input.input(type="text", placeholder="Diary name", name="uid")
+            +Field('Passcode')
+                input.input(type="password", placeholder="Secret", name="pwd")
+            +Field()
+                input.button.is-link(type="submit", value="Submit")

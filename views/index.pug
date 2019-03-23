@@ -3,11 +3,15 @@ extends layout
 block content
     #app
         nav
-            ul(style="margin: 1em"): li(v-for="e of entries"): a(href="#", @click.prevent="loadDate(e.key)") {{e.day}}
+            ul: li(v-for="e of entries", :class="{ active: e === current }"): a(href="#", @click.prevent="setCurrent(e)") {{e.day}}
+            .nav-bottom
+                button.button.is-link.is-fullwidth(@click="save", :disabled="isSaving")
+                    include ../public/img/upload.svg
+                    span {{isSaving ? 'Saving...' : 'Save' }}
 
         main
-            form(v-if="current")
-                textarea(v-model="current.value")
+            form
+                textarea(:value="current.value", @input="update")
 
 
 block scripts

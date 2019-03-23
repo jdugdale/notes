@@ -52,16 +52,36 @@ body {
     padding: 1em;
 }
 
-.disp-table {
-    display: table;
-    width: 100%;
-    height: 100%;
+nav ul {
+    margin-top: 1em;
 }
 
-.disp-row {
-    display: table-row;
+nav ul>li {
+    padding: 0.2em 1em;
 }
 
-.disp-cell {
-    display: table-cell;
+nav ul>li.active {
+    background-color: #EEE;
+    color: #4a4a4a;
 }
+
+nav ul>li a {
+    color: #EEE;
+}
+
+nav ul>li a:hover {
+    color: #CCC;
+}
+
+nav ul>li.active a {
+    color: #4a4a4a;
+}
+
+.nav-bottom {
+    position: absolute;
+    bottom: 3.5em;
+    padding-left: 1em;
+    width: 14em;
+}
+
+.nav-bottom button>svg { height: 1.2em; width: 1.2em; fill:white; margin-right: 0.3em; }
