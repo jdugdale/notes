@@ -1,17 +1,7 @@
 doctype html
 html
-    head
-        title= title
-        link(rel='stylesheet', href='/css/bulma.min.css')
-        link(rel='stylesheet', href='/css/main.css')
-    body
-        header#top
-            h1.is-pulled-left Notes
-            if uid
-            .is-pulled-right= uid
-        #main-content
-            block content
-        footer#bottom    
-    script(src="/js/static.js")
-    block scripts
-      
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content

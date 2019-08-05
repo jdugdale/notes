@@ -1,0 +1,83 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #090909;
+    color: #0CC;
+    padding: 0;
+}
+
+#app {
+    display: table;
+    height: calc(100vh - 2em);
+    width:100%;
+}
+
+nav {
+    display: table-cell;
+    width: 20%;
+    padding: 2em 1em;
+    /*height: calc(100vh - 2em);*/
+    height: 100%;
+    vertical-align: top;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: lime;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: green;
+}
+
+.note {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+#editor {
+    display: table-cell;
+    vertical-align: top;
+    width: 40%;
+    padding: 1em;
+    /*background-color: #CCC;*/
+}
+
+#editor textarea {
+    height: 100%;
+    width: 100%;
+    background-color: #111;
+    color: white;
+    border: none;
+    resize: none;
+    padding: 1em;
+}
+
+#preview {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 1em;
+}
+
+a.edit-btn {
+    position: absolute;
+    right: 1em;
+    top: 2em;
+    color: magenta;
+    text-decoration: none;
+}
+
+a.edit-btn:hover {
+    color: red;
+}
