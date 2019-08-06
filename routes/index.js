@@ -4,8 +4,9 @@ const Store = require('lf-common-client').Store;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+    console.log('sanity')
     if(req.query['code'] === 'bobbysue')
-        res.sendFile(path.join(__dirname, 'ui', 'dist'));
+        res.sendFile(path.join(__dirname, '../ui', 'dist'));
     else
         res.sendStatus(403);
 });
